@@ -73,17 +73,26 @@ def winCondition(visual, xChoix, yChoix):
     elif xChoix == 2:
         if (visual[xChoix - 2][yChoix] == visual[xChoix][yChoix])and (visual[xChoix - 1][yChoix] == visual[xChoix][yChoix]) :
             return visual[xChoix][yChoix]
+        #test en diagonale
+    if xChoix == 1 and yChoix == 1:
+        if (visual[0][0] == visual[xChoix][yChoix] and visual[2][2] == visual[1][1]):
+            return visual[xChoix][yChoix]
+        elif (visual[0][2] == visual[xChoix][yChoix] and visual[2][0] == visual[1][1]):
+            return visual[xChoix][yChoix]
+
+
+
     #test en diagonale
-    if visual[1][1] == "X":
-        if (visual[0][0] == "X" and visual[2][2] == "X"):
-            print("diagonal")
-        elif (visual[0][2] == "X" and visual[2][0] == "X"):
-            print("diagonal")
-    if visual[1][1] == "O":
-        if (visual[0][0] == "O" and visual[2][2] == "O"):
-            print("diagonal")
-        elif (visual[0][2] == "O" and visual[2][0] == "O"):
-            print("diagonal")
+    # if visual[1][1] == "X":
+    #     if (visual[0][0] == "X" and visual[2][2] == "X"):
+    #         print("diagonal")
+    #     elif (visual[0][2] == "X" and visual[2][0] == "X"):
+    #         print("diagonal")
+    # if visual[1][1] == "O":
+    #     if (visual[0][0] == "O" and visual[2][2] == "O"):
+    #         print("diagonal")
+    #     elif (visual[0][2] == "O" and visual[2][0] == "O"):
+    #         print("diagonal")
 
 
 def affichergrille():
@@ -130,6 +139,8 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
     player1['prenom'] = input("Entrez le prénom du joueur 1 : ")
     player2['prenom'] = input("Entrez le prénom du joueur 2 : ")
 
+    count = 0
+
     breaker()
 
     print(player1['prenom'],"tu joueras les X")
@@ -139,19 +150,18 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
 
     breaker()
 
-    while True:
-        print(turnPlayer["prenom"]," à ton tour !")
+    while winplayer1 ==False and winplayer2 == False:
         print("Reference du visualleau\n")
         affichergrille()
         breakertwo()
-        print(turnPlayer["prenom"]," à ton tour !")
+        print(turnPlayer['prenom']," à ton tour !")
         breakertwo()
         affichervisual()
 
         while True :
             player1 ='X'
             player2 ='O'
-
+            
             if turnPlayer == player1:
                 choix = str(input("\nQuelle case souhaites-tu jouer ? "))
                 x,y=case(choix)
@@ -161,15 +171,21 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
                     choix = str(input("\nQuelle case souhaites-tu jouer ? "))
                     x,y=case(choix)
                 visual[x][y]='X'
+                count +=1
                 breakertwo()
                 affichergrille()
                 breakertwo()
                 affichervisual()
 
                 if winCondition(visual, x ,y) == 'X':
+                    print("Bravo ! Tu as gagné !")
                     winplayer1 = True
-                    print("gg wp")
                     break
+                if count == 9:
+                    print("égaliter")
+                    winplayer1 = True
+                    break
+
             else:
                 choix = str(input("\nQuelle case souhaites-tu jouer ? "))
                 x,y=case(choix)
@@ -179,14 +195,19 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
                     choix = str(input("\nQuelle case souhaites-tu jouer ? "))
                     x,y=case(choix)   
                 visual[x][y]='O'
+                count +=1
                 breakertwo()
                 affichergrille()
                 breakertwo()
                 affichervisual()  
 
                 if winCondition(visual, x ,y) == 'O':
-                    winplayer1 = True
-                    print("gg wp")
+                    print("Bravo ! Tu as gagné !")
+                    winplayer2 = True
+                    break
+                if count == 9:
+                    print("égaliter")
+                    winplayer2 = True
                     break
 
 
@@ -195,4 +216,23 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
                 turnPlayer = player2
             else:
                 turnPlayer = player1
+
+    restart = " "
+    while restart not in ["O", "N"]:
+        breaker()
+        restart = input("Souhaitez-vous restart ? [O/N] ")
+        winplayer2 = False
+        winplayer1 = False
+        player1 = {"prenom" : "", "symbole" : "X"}
+        player2 = {"prenom" : "", "symbole" : "O"}
+        visual = []
+        visual.append([" ", " ", " "])
+        visual.append([" ", " ", " "])
+        visual.append([" ", " ", " "])
+
+    if restart == "N":
+        break
+
+breaker()
+print("Merci d'avoir joué !")
 
