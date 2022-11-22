@@ -84,7 +84,12 @@ def winCondition(visual, xChoix, yChoix):
 
 # def cpu():
 #     if count == 0:
-#         IA        
+#         player2(random.choise(5))    
+# 
+# def checking():
+#   for y in range(0,len(visual))
+#       check = 0
+#   if (visual[0][0])    
 
 
 def affichergrille():
