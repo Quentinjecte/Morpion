@@ -73,26 +73,18 @@ def winCondition(visual, xChoix, yChoix):
     elif xChoix == 2:
         if (visual[xChoix - 2][yChoix] == visual[xChoix][yChoix])and (visual[xChoix - 1][yChoix] == visual[xChoix][yChoix]) :
             return visual[xChoix][yChoix]
-        #test en diagonale
-    if xChoix == 1 and yChoix == 1:
-        if (visual[0][0] == visual[xChoix][yChoix] and visual[2][2] == visual[1][1]):
-            return visual[xChoix][yChoix]
-        elif (visual[0][2] == visual[xChoix][yChoix] and visual[2][0] == visual[1][1]):
-            return visual[xChoix][yChoix]
-
-
-
     #test en diagonale
-    # if visual[1][1] == "X":
-    #     if (visual[0][0] == "X" and visual[2][2] == "X"):
-    #         print("diagonal")
-    #     elif (visual[0][2] == "X" and visual[2][0] == "X"):
-    #         print("diagonal")
-    # if visual[1][1] == "O":
-    #     if (visual[0][0] == "O" and visual[2][2] == "O"):
-    #         print("diagonal")
-    #     elif (visual[0][2] == "O" and visual[2][0] == "O"):
-    #         print("diagonal")
+    if xChoix == 1 and yChoix == 1:
+        return None
+    elif (visual[0][2] == visual[xChoix][yChoix] and visual[2][0] == visual[xChoix][yChoix]):
+        return visual[xChoix][yChoix]
+    elif (visual[0][0] == visual[xChoix][yChoix] and visual[2][2] == visual[xChoix][yChoix]):
+            return visual[xChoix][yChoix]
+
+
+# def cpu():
+#     if count == 0:
+#         IA        
 
 
 def affichergrille():
@@ -112,13 +104,6 @@ def breaker():
 
 def breakertwo():
     print(" ")
-
-    # def cpu():
-    #     while player2 == 'O':
-    #         case = random.randint(0,8)
-    #         if visual[case] == " ":
-    #             visual[case]= 'O'
-    #             turnPlayer()    
 
 breaker()
 print("Bienvenue dans le jeu du morpion !\n"
@@ -159,8 +144,6 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
         affichervisual()
 
         while True :
-            player1 ='X'
-            player2 ='O'
             
             if turnPlayer == player1:
                 choix = str(input("\nQuelle case souhaites-tu jouer ? "))
@@ -178,7 +161,7 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
                 affichervisual()
 
                 if winCondition(visual, x ,y) == 'X':
-                    print("Bravo ! Tu as gagné !")
+                    print("Bravo! " +turnPlayer["prenom"]+ " Tu as gagné !")
                     winplayer1 = True
                     break
                 if count == 9:
@@ -202,7 +185,7 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
                 affichervisual()  
 
                 if winCondition(visual, x ,y) == 'O':
-                    print("Bravo ! Tu as gagné !")
+                    print("Bravo ! " +turnPlayer["prenom"]+ " Tu as gagné !")
                     winplayer2 = True
                     break
                 if count == 9:
