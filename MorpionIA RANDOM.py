@@ -51,9 +51,6 @@ def case(choix):
         x = 0
         y = 2
         return x,y
-    else:
-        return "error"
-
 
 def winCondition(visual, xChoix, yChoix):
     #test en ligne
@@ -77,11 +74,12 @@ def winCondition(visual, xChoix, yChoix):
         if (visual[xChoix - 2][yChoix] == visual[xChoix][yChoix])and (visual[xChoix - 1][yChoix] == visual[xChoix][yChoix]) :
             return visual[xChoix][yChoix]
     #test en diagonale
-        if (visual[0][0] == 'X' and visual[2][2] == 'X'):
+    if xChoix == 1 and yChoix == 1:
+        return None
+    elif (visual[0][2] == visual[xChoix][yChoix] and visual[2][0] == visual[xChoix][yChoix] and visual[1][1] == visual[xChoix][yChoix]):
+        return visual[xChoix][yChoix]
+    elif (visual[0][0] == visual[xChoix][yChoix] and visual[2][2] == visual[xChoix][yChoix] and visual[1][1] == visual[xChoix][yChoix]):
             return visual[xChoix][yChoix]
-        elif (visual[2][0] == 'X' and visual[0][2] == 'X'):
-            return visual[xChoix][yChoix]
-
 
 def cpuBlock(visual):
     if (visual[1][1]=='X' and visual[2][2]=='X' or visual[1][0]=='X' and visual[2][0]=='X' or visual[0][1]=='X' and visual[0][2]=='X') and visual[0][0]== " ":
@@ -162,6 +160,16 @@ def cpuWin(visual):
 
     else:
         return "NO"
+
+
+# def cpu():
+#     if count == 0:
+#         player2(random.choise(5))    
+# 
+# def checking():
+#   for y in range(0,len(visual))
+#       check = 0
+#   if (visual[0][0])    
 
 
 def affichergrille():
@@ -247,46 +255,19 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
                     break
 
             else:
-                if cpuBlock(visual) != "NO":
-                    choixCpu = cpuBlock(visual)
-                    x,y=case(choixCpu)
-                    visual[x][y]='O'
-                    count +=1
-                    print(+turnPlayer['prenom']+ "a jouer cette case")
+                choixCpu = str(random.randint(1,9))
+                x,y=case(choixCpu)
 
-                elif cpuWin(visual) != "NO":
-                    choixCpu = cpuWin(visual)
-                    x,y=case(choixCpu)
-                    visual[x][y]='O'
-                    count +=1
-                    print(+turnPlayer['prenom']+ "a jouer cette case")
-                    
-                else:
-                    if visual[1][1] =='X' and count == 2:
-                        visual[1][1] =='O'
-                        count +=1
-
-                    elif visual[1][1] =='X':
-                        choixCpu=str(random.randint(1,9))
-                        x,y=case(choixCpu)
-                        visual[x][y]='O'
-                        count +=1
-                        while ((case(choixCpu) !=(0,0)) and (case(choixCpu) !=(0,2)) and (case(choixCpu) !=(2,0)) and (case(choixCpu) !=(2,2)))or(visual[x][y] == 'X' or visual[x][y] == 'O'):
-                            choixCpu=str(random.randint(1,9))
-                            x,y=case(choixCpu)
-                            visual[x][y]='O'
-
-
-                # while visual[x][y]!=" ":
-                #     print("\nCette case est deja prise")
-                #     choixCpu = str(input("\nQuelle case souhaites-tu jouer ? "))
-                #     x,y=case(choix)   
-                #     visual[x][y]='O'
-                #     count +=1
-                #     breakertwo()
-                #     affichergrille()
-                #     breakertwo()
-                #     affichervisual()  
+                while visual[x][y]!=" ":
+                    print("\nCette case est deja prise")
+                    choixCpu = str(random.randint(1,9))
+                    x,y=case(choixCpu)   
+                visual[x][y]='O'
+                count +=1
+                breakertwo()
+                affichergrille()
+                breakertwo()
+                affichervisual()  
 
                 if winCondition(visual, x ,y) == 'O':
                     print("Bravo ! " +turnPlayer["prenom"]+ " Tu as gagné !")
@@ -322,4 +303,3 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
 
 breaker()
 print("Merci d'avoir joué !")
-
