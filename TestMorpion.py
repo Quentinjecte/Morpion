@@ -83,85 +83,104 @@ def winCondition(visual, xChoix, yChoix):
             return visual[xChoix][yChoix]
 
 
-def cpuBlock(visual):
-    if (visual[1][1]=='X' and visual[2][2]=='X' or visual[1][0]=='X' and visual[2][0]=='X' or visual[0][1]=='X' and visual[0][2]=='X') and visual[0][0]== " ":
-      visual[0][0]="O"
-      return '7'
+def cpu(visual):
+    if visual[0][0] =='X' and visual[0][1] =='X':
+        visual[0][2]=='O'
+    elif visual[0][1] =='X' and visual[0][2]=='X':
+        visual[0][0]=='O'
+    elif visual[0][0] =='X' and visual[0][2]=='X':
+        visual[0][1]=='O'
+    elif visual[1][0] =='X' and visual[1][1]=='X':
+        visual[1][2]=='O'
+    elif visual[1][1] =='X' and visual[1][2]=='X':
+        visual[1][0]=='O'
+    elif visual[1][0] =='X' and visual[1][2]=='X':
+        visual[1][1]=='O'
+    elif visual[2][1] =='X' and visual[2][2]=='X':
+        visual[2][0]=='O'
+    elif visual[2][0] =='X' and visual[2][2]=='X':
+        visual[2][1]=='O'
+    elif visual[2][0] =='X' and visual[2][2]=='X':
+        visual[2][1]=='O'
+    elif visual[0][0] =='X' and visual[1][0]=='X':
+        visual[2][0]=='O'
+    elif visual[1][0] =='X' and visual[2][0]=='X':
+        visual[0][0]=='O'
+    elif visual[0][0] =='X' and visual[2][0]=='X':
+        visual[1][0]=='O'
+    elif visual[1][1] =='X' and visual[2][1]=='X':
+        visual[0][1]=='O'
+    elif visual[1][0] =='X' and visual[2][1]=='X':
+        visual[1][1]=='O'
+    elif visual[0][1] =='X' and visual[1][1]=='X':
+        visual[2][1]=='O'
+    elif visual[0][2] =='X' and visual[1][2]=='X':
+        visual[2][2]=='O'
+    elif visual[1][2] =='X' and visual[2][2]=='X':
+        visual[0][2]=='O'
+    elif visual[0][2] =='X' and visual[2][2]=='X':
+        visual[1][2]=='O'
+    elif visual[0][0] =='X' and visual[2][2]=='X':
+        visual[1][1]=='O'
+    elif visual[0][0] =='X' and visual[1][1]=='X':
+        visual[2][2]=='O'
+    elif visual[1][1] =='X' and visual[2][2]=='X':
+        visual[1][1]=='O'
+    elif visual[2][0] =='X' and visual[0][2]=='X':
+        visual[1][1]=='O'
+    elif visual[0][2] =='X' and visual[1][1]=='X':
+        visual[2][0]=='O'
+    elif visual[1][1] =='X' and visual[2][0]=='X':
+        visual[0][2]=='O'
 
-    elif (visual[0][0]=='X' and visual[0][2]=='X' or visual[1][1]=='X' and visual[2][1]=='X') and visual[0][1]== " ":
-      visual[0][1]="O"
-      return '8'
-
-    elif (visual[0][0]=='X' and visual[0][1]=='X' or visual[1][1]=='X' and visual[2][0]=='X' or visual[1][2]=='X' and visual[2][2]=='X') and visual[0][2]== " ":
-      visual[0][2]="O"
-      return '9'
-
-    elif (visual[0][0]=='X' and visual[2][0]=='X' or visual[1][1]=='X' and visual[1][2]=='X') and visual[1][0]== " ":
-      visual[1][0]="O"
-      return '4'
-
-    elif (visual[0][0]=='X' and visual[2][2]=='X' or visual[1][0]=='X' and visual[1][2]=='X' or visual[0][1]=='X' and visual[2][1]=='X' or visual[2][0]=='X' and visual[0][2]=='X') and visual[1][1]== " ":
-      visual[1][1]="O"
-      return '5'
-
-    elif (visual[1][0]=='X' and visual[1][2]=='X' or visual[0][2]=='X' and visual[2][2]=='X') and visual[1][2]== " ":
-      visual[1][2]="O"
-      return '6'
-
-    elif (visual[0][0]=='X' and visual[1][0]=='X' or visual[1][1]=='X' and visual[0][2]=='X' or visual[2][1]=='X' and visual[2][2]=='X') and visual[2][0]== " ":
-      visual[2][0]="O"
-      return '1'
-
-    elif (visual[2][1]=='X' and visual[2][2]=='X' or visual[1][1]=='X' and visual[0][1]=='X') and visual[2][1]== " ":
-      visual[2][1]="O"
-      return '2'
-
-    elif (visual[0][0]=='X' and visual[1][1]=='X' or visual[2][0]=='X' and visual[2][1]=='X' or visual[0][2]=='X' and visual[1][2]=='X') and visual[2][2]== " ":
-      visual[2][2]="O"
-      return '3'
-
-    else:
-        return "NO"
-
-def cpuWin(visual):
-    if (visual[1][1]=='O' and visual[2][2]=='O' or visual[1][0]=='O' and visual[2][0]=='O' or visual[0][1]=='O' and visual[0][2]=='O') and visual[0][0]== " ":
-      visual[0][0]="O"
-      return '7'
-
-    elif (visual[0][0]=='O' and visual[0][2]=='O' or visual[1][1]=='O' and visual[2][1]=='O') and visual[0][1]== " ":
-      visual[0][1]="O"
-      return '8'
-
-    elif (visual[0][0]=='O' and visual[0][1]=='O' or visual[1][1]=='O' and visual[2][0]=='O' or visual[1][2]=='O' and visual[2][2]=='O') and visual[0][2]== " ":
-      visual[0][2]="O"
-      return '9'
-
-    elif (visual[0][0]=='O' and visual[2][0]=='O' or visual[1][1]=='O' and visual[1][2]=='O') and visual[1][0]== " ":
-      visual[1][0]="O"
-      return '4'
-
-    elif (visual[0][0]=='O' and visual[2][2]=='O' or visual[1][0]=='O' and visual[1][2]=='O' or visual[0][1]=='O' and visual[2][1]=='O' or visual[2][0]=='O' and visual[0][2]=='O') and visual[1][1]== " ":
-      visual[1][1]="O"
-      return '5'
-
-    elif (visual[1][0]=='O' and visual[1][2]=='O' or visual[0][2]=='O' and visual[2][2]=='O') and visual[1][2]== " ":
-      visual[1][2]="O"
-      return '6'
-
-    elif (visual[0][0]=='O' and visual[1][0]=='O' or visual[1][1]=='O' and visual[0][2]=='O' or visual[2][1]=='O' and visual[2][2]=='O') and visual[2][0]== " ":
-      visual[2][0]="O"
-      return '1'
-
-    elif (visual[2][1]=='O' and visual[2][2]=='O' or visual[1][1]=='O' and visual[0][1]=='O') and visual[2][1]== " ":
-      visual[2][1]="O"
-      return '2'
-
-    elif (visual[0][0]=='O' and visual[1][1]=='O' or visual[2][0]=='O' and visual[2][1]=='O' or visual[0][2]=='O' and visual[1][2]=='O') and visual[2][2]== " ":
-      visual[2][2]="O"
-      return '3'
-
-    else:
-        return "NO"
+    if visual[0][0] =='O' and visual[0][1] =='O':
+        visual[0][2]=='O'
+    elif visual[0][1] =='O' and visual[0][2]=='O':
+        visual[0][0]=='O'
+    elif visual[0][0] =='O' and visual[0][2]=='O':
+        visual[0][1]=='O'
+    elif visual[1][0] =='O' and visual[1][1]=='O':
+        visual[1][2]=='O'
+    elif visual[1][1] =='O' and visual[1][2]=='O':
+        visual[1][0]=='O'
+    elif visual[1][0] =='O' and visual[1][2]=='O':
+        visual[1][1]=='O'
+    elif visual[2][1] =='O' and visual[2][2]=='O':
+        visual[2][0]=='O'
+    elif visual[2][0] =='O' and visual[2][2]=='O':
+        visual[2][1]=='O'
+    elif visual[2][0] =='O' and visual[2][2]=='O':
+        visual[2][1]=='O'
+    elif visual[0][0] =='O' and visual[1][0]=='O':
+        visual[2][0]=='O'
+    elif visual[1][0] =='O' and visual[2][0]=='O':
+        visual[0][0]=='O'
+    elif visual[0][0] =='O' and visual[2][0]=='O':
+        visual[1][0]=='O'
+    elif visual[1][1] =='O' and visual[2][1]=='O':
+        visual[0][1]=='O'
+    elif visual[1][0] =='O' and visual[2][1]=='O':
+        visual[1][1]=='O'
+    elif visual[0][1] =='O' and visual[1][1]=='O':
+        visual[2][1]=='O'
+    elif visual[0][2] =='O' and visual[1][2]=='O':
+        visual[2][2]=='O'
+    elif visual[1][2] =='O' and visual[2][2]=='O':
+        visual[0][2]=='O'
+    elif visual[0][2] =='O' and visual[2][2]=='O':
+        visual[1][2]=='O'
+    elif visual[0][0] =='O' and visual[2][2]=='O':
+        visual[1][1]=='O'
+    elif visual[0][0] =='O' and visual[1][1]=='O':
+        visual[2][2]=='O'
+    elif visual[1][1] =='O' and visual[2][2]=='O':
+        visual[1][1]=='O'
+    elif visual[2][0] =='O' and visual[0][2]=='O':
+        visual[1][1]=='O'
+    elif visual[0][2] =='O' and visual[1][1]=='O':
+        visual[2][0]=='O'
+    elif visual[1][1] =='O' and visual[2][0]=='O':
+        visual[0][2]=='O'
 
 
 def affichergrille():
@@ -247,52 +266,24 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
                     break
 
             else:
-                if cpuBlock(visual) != "NO":
-                    choixCpu = cpuBlock(visual)
-                    x,y=case(choixCpu)
-                    visual[x][y]='O'
-                    count +=1
-                    print(+turnPlayer['prenom']+ "a jouer cette case")
+              choixCpu=str(random.randint(1,9))
+              count+=1
 
-                elif cpuWin(visual) != "NO":
-                    choixCpu = cpuWin(visual)
-                    x,y=case(choixCpu)
-                    visual[x][y]='O'
-                    count +=1
-                    print(+turnPlayer['prenom']+ "a jouer cette case")
-                    
-                else:
-                    if visual[1][1] =='X' and count == 2:
-                        visual[1][1] =='O'
-                        count +=1
+              while visual[x][y]!=" ":
+                  print("\nCette case est deja prise")
+                  choixCpu = str(random.randint(1,9))
+                  x,y=case(choixCpu)   
+              visual[x][y]='O'
+              breakertwo()
+              affichergrille()
+              breakertwo()
+              affichervisual()  
 
-                    elif visual[1][1] =='X':
-                        choixCpu=str(random.randint(1,9))
-                        x,y=case(choixCpu)
-                        visual[x][y]='O'
-                        count +=1
-                        while ((case(choixCpu) !=(0,0)) and (case(choixCpu) !=(0,2)) and (case(choixCpu) !=(2,0)) and (case(choixCpu) !=(2,2)))or(visual[x][y] == 'X' or visual[x][y] == 'O'):
-                            choixCpu=str(random.randint(1,9))
-                            x,y=case(choixCpu)
-                            visual[x][y]='O'
-
-
-                # while visual[x][y]!=" ":
-                #     print("\nCette case est deja prise")
-                #     choixCpu = str(input("\nQuelle case souhaites-tu jouer ? "))
-                #     x,y=case(choix)   
-                #     visual[x][y]='O'
-                #     count +=1
-                #     breakertwo()
-                #     affichergrille()
-                #     breakertwo()
-                #     affichervisual()  
-
-                if winCondition(visual, x ,y) == 'O':
+              if winCondition(visual, x ,y) == 'O':
                     print("Bravo ! " +turnPlayer["prenom"]+ " Tu as gagné !")
                     winplayer2 = True
                     break
-                if count == 9:
+              if count == 9:
                     print("égaliter")
                     winplayer2 = True
                     break

@@ -81,41 +81,43 @@ def winCondition(visual, xChoix, yChoix):
     elif (visual[0][0] == visual[xChoix][yChoix] and visual[2][2] == visual[xChoix][yChoix] and visual[1][1] == visual[xChoix][yChoix]):
             return visual[xChoix][yChoix]
 
+
+
 def cpuBlock(visual):
     if (visual[1][1]=='X' and visual[2][2]=='X' or visual[1][0]=='X' and visual[2][0]=='X' or visual[0][1]=='X' and visual[0][2]=='X') and visual[0][0]== " ":
-      visual[0][0]="O"
+
       return '7'
 
     elif (visual[0][0]=='X' and visual[0][2]=='X' or visual[1][1]=='X' and visual[2][1]=='X') and visual[0][1]== " ":
-      visual[0][1]="O"
+
       return '8'
 
     elif (visual[0][0]=='X' and visual[0][1]=='X' or visual[1][1]=='X' and visual[2][0]=='X' or visual[1][2]=='X' and visual[2][2]=='X') and visual[0][2]== " ":
-      visual[0][2]="O"
+
       return '9'
 
     elif (visual[0][0]=='X' and visual[2][0]=='X' or visual[1][1]=='X' and visual[1][2]=='X') and visual[1][0]== " ":
-      visual[1][0]="O"
+
       return '4'
 
     elif (visual[0][0]=='X' and visual[2][2]=='X' or visual[1][0]=='X' and visual[1][2]=='X' or visual[0][1]=='X' and visual[2][1]=='X' or visual[2][0]=='X' and visual[0][2]=='X') and visual[1][1]== " ":
-      visual[1][1]="O"
+
       return '5'
 
     elif (visual[1][0]=='X' and visual[1][2]=='X' or visual[0][2]=='X' and visual[2][2]=='X') and visual[1][2]== " ":
-      visual[1][2]="O"
+
       return '6'
 
     elif (visual[0][0]=='X' and visual[1][0]=='X' or visual[1][1]=='X' and visual[0][2]=='X' or visual[2][1]=='X' and visual[2][2]=='X') and visual[2][0]== " ":
-      visual[2][0]="O"
+
       return '1'
 
     elif (visual[2][1]=='X' and visual[2][2]=='X' or visual[1][1]=='X' and visual[0][1]=='X') and visual[2][1]== " ":
-      visual[2][1]="O"
+
       return '2'
 
     elif (visual[0][0]=='X' and visual[1][1]=='X' or visual[2][0]=='X' and visual[2][1]=='X' or visual[0][2]=='X' and visual[1][2]=='X') and visual[2][2]== " ":
-      visual[2][2]="O"
+
       return '3'
 
     else:
@@ -123,53 +125,44 @@ def cpuBlock(visual):
 
 def cpuWin(visual):
     if (visual[1][1]=='O' and visual[2][2]=='O' or visual[1][0]=='O' and visual[2][0]=='O' or visual[0][1]=='O' and visual[0][2]=='O') and visual[0][0]== " ":
-      visual[0][0]="O"
+
       return '7'
 
     elif (visual[0][0]=='O' and visual[0][2]=='O' or visual[1][1]=='O' and visual[2][1]=='O') and visual[0][1]== " ":
-      visual[0][1]="O"
+
       return '8'
 
     elif (visual[0][0]=='O' and visual[0][1]=='O' or visual[1][1]=='O' and visual[2][0]=='O' or visual[1][2]=='O' and visual[2][2]=='O') and visual[0][2]== " ":
-      visual[0][2]="O"
+
       return '9'
 
     elif (visual[0][0]=='O' and visual[2][0]=='O' or visual[1][1]=='O' and visual[1][2]=='O') and visual[1][0]== " ":
-      visual[1][0]="O"
+
       return '4'
 
     elif (visual[0][0]=='O' and visual[2][2]=='O' or visual[1][0]=='O' and visual[1][2]=='O' or visual[0][1]=='O' and visual[2][1]=='O' or visual[2][0]=='O' and visual[0][2]=='O') and visual[1][1]== " ":
-      visual[1][1]="O"
+
       return '5'
 
     elif (visual[1][0]=='O' and visual[1][2]=='O' or visual[0][2]=='O' and visual[2][2]=='O') and visual[1][2]== " ":
-      visual[1][2]="O"
+
       return '6'
 
     elif (visual[0][0]=='O' and visual[1][0]=='O' or visual[1][1]=='O' and visual[0][2]=='O' or visual[2][1]=='O' and visual[2][2]=='O') and visual[2][0]== " ":
-      visual[2][0]="O"
+ 
       return '1'
 
     elif (visual[2][1]=='O' and visual[2][2]=='O' or visual[1][1]=='O' and visual[0][1]=='O') and visual[2][1]== " ":
-      visual[2][1]="O"
+
       return '2'
 
     elif (visual[0][0]=='O' and visual[1][1]=='O' or visual[2][0]=='O' and visual[2][1]=='O' or visual[0][2]=='O' and visual[1][2]=='O') and visual[2][2]== " ":
-      visual[2][2]="O"
+
       return '3'
 
     else:
         return "NO"
 
-
-# def cpu():
-#     if count == 0:
-#         player2(random.choise(5))    
-# 
-# def checking():
-#   for y in range(0,len(visual))
-#       check = 0
-#   if (visual[0][0])    
 
 
 def affichergrille():
@@ -205,7 +198,7 @@ restart = 'O'
 player1 = {"prenom" : "", "symbole" : "X"}
 player2 = {"prenom" : "", "symbole" : "O"}
 
-while winplayer1 ==False and winplayer2 == False and restart == 'O':
+while winplayer1 ==False and winplayer2 == False and (restart == 'O'or'o'):
     player1['prenom'] = input("Entrez le prénom du joueur 1 : ")
     player2['prenom'] = input("Entrez le prénom du joueur 2 : ")
 
@@ -255,25 +248,52 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
                     break
 
             else:
-                choixCpu = str(random.randint(1,9))
+              if cpuWin !="NO":
+                choixCpu=cpuWin(visual)
                 x,y=case(choixCpu)
+                visual[x][y]='O'
+                
 
-                while visual[x][y]!=" ":
-                    print("\nCette case est deja prise")
-                    choixCpu = str(random.randint(1,9))
-                    x,y=case(choixCpu)   
+              elif cpuBlock !="NO":
+                choixCpu=cpuBlock(visual)
+                x,y=case(choixCpu)
+                visual[x][y]='O'
+          
+
+              if count == 0:
+                choixCpu=str(random.randint(5))
+                x,y=case(choixCpu)
                 visual[x][y]='O'
                 count +=1
-                breakertwo()
-                affichergrille()
-                breakertwo()
-                affichervisual()  
+       
+                
+              elif count == 1 and visual[1][1] =="X":
+                choixCpu=str(random.randint(1,3,7,9))
+                x,y=case(choixCpu)
+                visual[x][y]='O'
+                count +=1
 
-                if winCondition(visual, x ,y) == 'O':
+              # elif :
+              #   choixCpu=str(random.randint(5))
+              #   x,y=case(choixCpu)
+              #   visual[x][y]='O'
+
+
+              # while visual[x][y]!=" ":
+              #     print("\nCette case est deja prise")
+              #     choixCpu = str(random.randint(1,9))
+              #     x,y=case(choixCpu)   
+              # visual[x][y]='O'
+              breakertwo()
+              affichergrille()
+              breakertwo()
+              affichervisual()  
+
+              if winCondition(visual, x ,y) == 'O':
                     print("Bravo ! " +turnPlayer["prenom"]+ " Tu as gagné !")
                     winplayer2 = True
                     break
-                if count == 9:
+              if count == 9:
                     print("égaliter")
                     winplayer2 = True
                     break
@@ -286,7 +306,7 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
                 turnPlayer = player1
 
     restart = " "
-    while restart not in ["O", "N"]:
+    while restart not in ["O" or "o", "N" or "n"]:
         breaker()
         restart = input("Souhaitez-vous restart ? [O/N] ")
         winplayer2 = False
@@ -298,7 +318,7 @@ while winplayer1 ==False and winplayer2 == False and restart == 'O':
         visual.append([" ", " ", " "])
         visual.append([" ", " ", " "])
 
-    if restart == "N":
+    if restart == ("N"or"n"):
         break
 
 breaker()
