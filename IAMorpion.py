@@ -1,6 +1,6 @@
 # Class Computer - Implementation de Player pour l'ordinateur
 class Computer(player2):
-eeeeeeeeeeeeee
+
     def play(self, game):
         return self.bestMove(game, game.visual, self.symbol)[0]
 
