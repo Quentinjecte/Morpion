@@ -4,7 +4,7 @@ class Computer(player2):
     def play(self, game):
         return self.bestMove(game, game.visual, self.symbol)[0]
 
-    # Selectionner la meilleure possibilitee de jeu
+    #ggggggggggggggg Selectionner la meilleure possibilitee de jeug
     def bestMove(winCondition, self, visual, game, symbol):
         # On recupere le symbol de l'adverse pour nos calculs
         other = ("X" if symbol == "O" else "O")
